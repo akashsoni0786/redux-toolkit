@@ -65,10 +65,6 @@
   transform-style: preserve-3d;
 }
 
-/* .flip-box:hover .flip-box-inner {
-  transform: rotateY(180deg);
-} */
-
 .flip-box-front, .flip-box-back {
   position: absolute;
   width: 100%;

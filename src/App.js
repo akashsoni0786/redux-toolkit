@@ -49,60 +49,76 @@ function App() {
     const func = () => {
       let counts = 2;
       allpics.map((i, index) => {
-        if (i.match === "match") 
-        {
+        if (i.match === "match") {
           counts = counts + 1;
         }
       });
-      if(counts === allpics.length) 
-      {
+      if (counts === allpics.length) {
         setWin("Win");
       }
     };
     func();
-  },);
+  });
   return (
     <div className="App">
       <header className="App-header">
-        
-        {win === "Loose"?<><h1>Steps : {clicking}</h1><div className="boxsdiv">
-          {allpics.map((i, index) => {
-            return (
-              <div
-                className={i.rotate ? "flip-box2" : "flip-box"}
-                onClick={() => {
-                  if (show1 === "") {
-                    flipfunc(i);
-                  } else {
-                    flipfuncback(i);
-                  }
-                }}
-              >
-                <div
-                  className="flip-box-inner"
-                  style={
-                    i.rotate === false ? {} : { transform: "rotateY(180deg)" }
-                  }
-                >
-                  <div className="flip-box-front">
-                    <img
-                      src="https://content.presentermedia.com/content/animsp/00000000/999/question_mark_group_300_wht.gif"
-                      alt=""
-                      className="mainpic"
-                    />
-                  </div>
+        {win === "Loose" ? (
+          <>
+            <h1>Steps : {clicking}</h1>
+            <div className="boxsdiv">
+              {allpics.map((i, index) => {
+                return (
+                  <div
+                    className={i.rotate ? "flip-box2" : "flip-box"}
+                    onClick={() => {
+                      if (show1 === "") {
+                        flipfunc(i);
+                      } else {
+                        flipfuncback(i);
+                      }
+                    }}
+                  >
+                    <div
+                      className="flip-box-inner"
+                      style={
+                        i.rotate === false
+                          ? {}
+                          : { transform: "rotateY(180deg)" }
+                      }
+                    >
+                      <div className="flip-box-front">
+                        <img
+                          src="https://content.presentermedia.com/content/animsp/00000000/999/question_mark_group_300_wht.gif"
+                          alt=""
+                          className="mainpic"
+                        />
+                      </div>
 
-                  <div className="flip-box-back">
-                    <img src={i.img} alt="" className="mainpic" />
+                      <div className="flip-box-back">
+                        <img src={i.img} alt="" className="mainpic" />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            );
-          })}
-        </div></>:<><img alt="" src="https://media.tenor.com/HAGXdX-X-1cAAAAM/no1-happy.gif"/>
-        <h1> You have win with {clicking} steps</h1>
-        <button onClick={()=>{window.location.reload()}}>Replay</button>
-        </>}
+                );
+              })}
+            </div>
+          </>
+        ) : (
+          <>
+            <img
+              alt=""
+              src="https://media.tenor.com/HAGXdX-X-1cAAAAM/no1-happy.gif"
+            />
+            <h1> You have win with {clicking} steps</h1>
+            <button
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
+              Replay
+            </button>
+          </>
+        )}
       </header>
     </div>
   );
