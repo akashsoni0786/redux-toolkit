@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from "./Slice"
+import gameReducer from "./Slice"
 export const store = configureStore({
-  reducer: {counter: counterReducer},
+  reducer: {memorygame: gameReducer},
 })
